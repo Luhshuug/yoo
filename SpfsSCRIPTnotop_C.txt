@@ -1,0 +1,189 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local spfs = Instance.new("ScreenGui")
+local Gui = Instance.new("Frame")
+local SPFSScript = Instance.new("TextButton")
+local Admin = Instance.new("TextButton")
+local AntiAfk = Instance.new("TextButton")
+local AutoClick = Instance.new("TextButton")
+local Split = Instance.new("TextButton")
+local Close = Instance.new("TextButton")
+local AutoStrength = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+local Open = Instance.new("TextButton")
+
+--Properties:
+
+spfs.Name = "spfs"
+spfs.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+spfs.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+spfs.ResetOnSpawn = false
+
+Gui.Name = "Gui"
+Gui.Parent = spfs
+Gui.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Gui.Position = UDim2.new(0.355151534, 0, 0.194278896, 0)
+Gui.Size = UDim2.new(0, 571, 0, 481)
+Gui.Visible = false
+Gui.Active = true
+Gui.Draggable = true
+
+SPFSScript.Name = "SPFSScript"
+SPFSScript.Parent = Gui
+SPFSScript.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+SPFSScript.BorderColor3 = Color3.fromRGB(27, 42, 53)
+SPFSScript.Position = UDim2.new(0.323992997, 0, 0.65280664, 0)
+SPFSScript.Size = UDim2.new(0, 200, 0, 39)
+SPFSScript.Font = Enum.Font.SourceSans
+SPFSScript.Text = "Super power fighting simulator script"
+SPFSScript.TextColor3 = Color3.fromRGB(0, 0, 0)
+SPFSScript.TextSize = 14.000
+SPFSScript.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet(('https://pastebin.com/raw/TWr3At9M'),true))()
+end)
+
+Admin.Name = "Admin"
+Admin.Parent = Gui
+Admin.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Admin.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Admin.Position = UDim2.new(0.535901904, 0, 0.303534329, 0)
+Admin.Size = UDim2.new(0, 200, 0, 39)
+Admin.Font = Enum.Font.SourceSans
+Admin.Text = "Admin"
+Admin.TextColor3 = Color3.fromRGB(0, 0, 0)
+Admin.TextSize = 14.000
+Admin.MouseButton1Down:connect(function()
+	------Fate's Admin (brought to you by Hacks Home)--------
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))();
+end)
+
+AntiAfk.Name = "AntiAfk"
+AntiAfk.Parent = Gui
+AntiAfk.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+AntiAfk.BorderColor3 = Color3.fromRGB(27, 42, 53)
+AntiAfk.Position = UDim2.new(0.089316994, 0, 0.303534329, 0)
+AntiAfk.Size = UDim2.new(0, 200, 0, 39)
+AntiAfk.Font = Enum.Font.SourceSans
+AntiAfk.Text = "AntiAfk"
+AntiAfk.TextColor3 = Color3.fromRGB(0, 0, 0)
+AntiAfk.TextSize = 14.000
+AntiAfk.MouseButton1Down:connect(function()
+	local vu = game:GetService("VirtualUser")
+	game:GetService("Players").LocalPlayer.Idled:connect(function()
+		vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		wait(1)
+		vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+	end)
+end)
+
+AutoClick.Name = "AutoClick"
+AutoClick.Parent = Gui
+AutoClick.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+AutoClick.BorderColor3 = Color3.fromRGB(27, 42, 53)
+AutoClick.Position = UDim2.new(0.535901904, 0, 0.15800415, 0)
+AutoClick.Size = UDim2.new(0, 200, 0, 39)
+AutoClick.Font = Enum.Font.SourceSans
+AutoClick.Text = "AutoClick"
+AutoClick.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoClick.TextSize = 14.000
+AutoClick.MouseButton1Down:connect(function()
+	local vu = game:GetService("VirtualUser")
+	_G.autoclick = true
+	while _G.autoclick do
+		vu:Button1Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		wait(0.1)
+		vu:Button1Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+	end
+end)
+
+Split.Name = "Split"
+Split.Parent = Gui
+Split.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Split.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Split.Position = UDim2.new(0.089316994, 0, 0.158004165, 0)
+Split.Size = UDim2.new(0, 200, 0, 39)
+Split.Font = Enum.Font.SourceSans
+Split.Text = "Split"
+Split.TextColor3 = Color3.fromRGB(0, 0, 0)
+Split.TextSize = 14.000
+Split.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.UpperTorso.Waist:remove()
+end)
+
+Close.Name = "Close"
+Close.Parent = Gui
+Close.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Close.Position = UDim2.new(0.917688131, 0, 0, 0)
+Close.Size = UDim2.new(0, 47, 0, 45)
+Close.Font = Enum.Font.SourceSans
+Close.Text = "X"
+Close.TextColor3 = Color3.fromRGB(0, 0, 0)
+Close.TextSize = 50.000
+Close.MouseButton1Down:connect(function()
+	script.Parent.MouseButton1Click:Connect(function()
+		game.Players.LocalPlayer.PlayerGui.spfs.Gui.Visible = false
+	end)
+end)
+
+AutoStrength.Name = "AutoStrength"
+AutoStrength.Parent = Gui
+AutoStrength.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+AutoStrength.Position = UDim2.new(0.0893169865, 0, 0.442827463, 0)
+AutoStrength.Size = UDim2.new(0, 200, 0, 39)
+AutoStrength.Font = Enum.Font.SourceSans
+AutoStrength.Text = "AutoTrainStrength"
+AutoStrength.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoStrength.TextSize = 14.000
+AutoStrength.MouseButton1Down:connect(function()
+	while true do
+		local A_1 = "Strength"
+		local Event = game:GetService("ReplicatedStorage").Events.Train
+		Event:FireServer(A_1)
+		wait (0,2)
+	end
+end)
+
+TextLabel.Parent = Gui
+TextLabel.BackgroundColor3 = Color3.fromRGB(5, 54, 50)
+TextLabel.Size = UDim2.new(0, 523, 0, 45)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Have Fun   |      Made By Lire#0317"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 14.000
+
+Open.Name = "Open"
+Open.Parent = spfs
+Open.BackgroundColor3 = Color3.fromRGB(255, 167, 14)
+Open.Position = UDim2.new(0.115757488, 0, 0.835518539, 0)
+Open.Size = UDim2.new(0, 168, 0, 34)
+Open.Font = Enum.Font.SourceSans
+Open.Text = "Open"
+Open.TextColor3 = Color3.fromRGB(0, 0, 0)
+Open.TextSize = 14.000
+Open.MouseButton1Down:connect(function()
+	script.Parent.MouseButton1Click:Connect(function()
+		game.Players.LocalPlayer.PlayerGui.Screen.Cheat.Visible = true
+	end)
+end)
+
+-- Scripts:
+
+local function BAGYMXI_fake_script() -- Close.LocalScript 
+	local script = Instance.new('LocalScript', Close)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		game.Players.LocalPlayer.PlayerGui.spfs.Gui.Visible = false
+	end)
+end
+coroutine.wrap(BAGYMXI_fake_script)()
+local function OIKNP_fake_script() -- Open.LocalScript 
+	local script = Instance.new('LocalScript', Open)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		game.Players.LocalPlayer.PlayerGui.spfs.Gui.Visible = true
+	end)
+end
+coroutine.wrap(OIKNP_fake_script)()
